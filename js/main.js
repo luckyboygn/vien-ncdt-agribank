@@ -1,22 +1,28 @@
-// Load header từ header.html
+// Load header từ js/header.html
 async function loadHeader() {
-    const response = await fetch('/js/header.html'); // Lưu ý: Path có thể cần điều chỉnh tùy vào cấu trúc thực tế của bạn
-    const text = await response.text();
-    document.getElementById('header').innerHTML = text;
+    try {
+        const response = await fetch('js/header.html');
+        const text = await response.text();
+        document.getElementById('header').innerHTML = text;
+    } catch (e) { console.error("Lỗi load header"); }
 }
 
-// Load footer từ footer.html
+// Load footer từ js/footer.html
 async function loadFooter() {
-    const response = await fetch('/js/footer.html');
-    const text = await response.text();
-    document.getElementById('footer').innerHTML = text;
+    try {
+        const response = await fetch('js/footer.html');
+        const text = await response.text();
+        document.getElementById('footer').innerHTML = text;
+    } catch (e) { console.error("Lỗi load footer"); }
 }
 
-// Load nội dung JSON từ content.json
+// Load nội dung JSON từ data/content.json
 async function loadContentJSON() {
-    const response = await fetch('/data/content.json');
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch('data/content.json');
+        const data = await response.json();
+        return data;
+    } catch (e) { console.error("Lỗi load nội dung JSON"); }
 }
 
 // Render trang chủ
@@ -27,7 +33,7 @@ async function renderTrangChu() {
             <h1 style="position:absolute; bottom:30px;">Chào mừng đến với Viện Nghiên cứu và Đào tạo</h1>
         </div>
         <section>
-            <h2>Giới thiệu chung</h2>
+            <h2 style="margin-top:40px;">Giới thiệu chung</h2>
             <p style="text-align:center; max-width:800px; margin: 0 auto;">${data.gioiThieu.description}</p>
         </section>
     `;
@@ -45,9 +51,9 @@ async function renderGioiThieu() {
 // Render Cơ cấu Tổ chức
 async function renderCoCauToChuc() {
     const data = await loadContentJSON();
-    let content = '<h1 style="text-align:center; margin-bottom:20px;">Cơ Cấu Tổ Chức</h1><div style="max-width:800px; margin: 0 auto; line-height:1.8;"><ul>';
+    let content = '<h1 style="text-align:center; margin-bottom:20px;">Cơ Cấu Tổ Chức</h1><div style="max-width:800px; margin: 0 auto; line-height:1.8;"><ul style="list-style:none;">';
     data.coCauToChuc.forEach(department => {
-        content += `<li><strong>${department.name}</strong>: ${department.description}</li>`;
+        content += `<li style="margin-bottom:10px;"><strong style="color:var(--color-primary);">${department.name}</strong>: ${department.description}</li>`;
     });
     content += '</ul></div>';
     document.getElementById('content').innerHTML = content;
@@ -62,11 +68,11 @@ async function renderTinTuc() {
     data.tinTuc.forEach(article => {
         newsList += `
             <div class="card" style="width:300px;">
-                <img src="${article.image}" alt="${article.title}" style="width:100%; height:auto;">
+                <img src="${article.image}" alt="${article.title}" style="width:100%; height:auto; border-radius:8px;">
                 <div class="card-content">
                     <h3 style="color:var(--color-primary);">${article.title}</h3>
                     <p><small>Ngày đăng: ${article.date}</small></p>
-                    <p>${article.summary}</p>
+                    <p style="font-size:0.9em;">${article.summary}</p>
                     <a href="?id=${article.id}" style="color:var(--color-accent); font-weight:bold;">Xem chi tiết</a>
                 </div>
             </div>
@@ -82,10 +88,10 @@ async function renderTinTuc() {
 
         if (selectedArticle) {
             newsList += `
-                <div class="news-detail" style="max-width:800px; margin:40px auto; padding:20px; background:var(--color-bg-soft);">
+                <div class="news-detail" style="max-width:800px; margin:40px auto; padding:20px; background:var(--color-bg-soft); border-radius:8px;">
                     <h2 style="text-align:left; margin-bottom:10px;">${selectedArticle.title}</h2>
                     <p><small>Ngày đăng: ${selectedArticle.date}</small></p>
-                    <img src="${selectedArticle.image}" alt="${selectedArticle.title}" style="width:100%; height:auto; margin-bottom:20px;">
+                    <img src="${selectedArticle.image}" alt="${selectedArticle.title}" style="width:100%; height:auto; margin-bottom:20px; border-radius:8px;">
                     <div class="news-content" style="line-height:1.8;">${selectedArticle.content}</div>
                 </div>
             `;
@@ -129,4 +135,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         await renderLienHe();
     }
 });
-``` Alvarado: js/main.js, path: vien_ncdt_website/js/main.js
