@@ -1,0 +1,336 @@
+/* ---------------------------------------- */
+/* BẢNG MÀU (CSS Variables)                */
+/* ---------------------------------------- */
+
+:root {
+    --color-primary: #7A0C2E;      /* đỏ bordeaux chủ đạo, dùng cho header, nút chính, tiêu đề */
+    --color-primary-dark: #5C0921; /* dùng khi hover/active */
+    --color-accent: #C9A227;       /* vàng ánh kim, dùng làm viền nhấn, gạch chân tiêu đề, icon */
+    --color-bg: #FFFFFF;
+    --color-bg-soft: #F5EDEF;      /* nền các section xen kẽ */
+    --color-text: #2B2B2B;
+    --color-text-light: #6B6B6B;
+
+    /* Các giá trị khác (không bắt buộc) */
+    --font-size-base: 16px;
+    --border-radius-small: 4px;
+    --box-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+}
+
+/* ---------------------------------------- */
+/* RESET VÁI LÚC                           */
+/* ---------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* ---------------------------------------- */
+/* HEADER                                 */
+/* ---------------------------------------- */
+
+#header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px; /* Cỡ chữ lớn cho logo */
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 15px;
+    position: relative;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-item:hover .nav-link,
+.nav-link.active {
+    background-color: var(--color-primary-dark);
+    cursor: pointer;
+}
+
+/* Hiệu ứng gạch chân màu vàng khi hover/active */
+.nav-item:hover::after,
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Khoảng cách từ dưới link */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+/* Responsive cho menu hamburger */
+.nav-menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger-icon,
+.close-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-icon span,
+.close-icon span {
+    display: block;
+    background-color: white;
+    width: 100%;
+    height: 3px;
+    margin: 3px 0;
+    transition: transform var(--transition-fast);
+}
+
+/* Hiệu ứng đóng mở menu */
+.nav-menu.active {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.nav-item.active .nav-link,
+.nav-menu.active .nav-link:hover {
+    background-color: transparent !important;
+    color: white;
+}
+
+/* Hiệu ứng đóng menu khi nhấp ngoài */
+body.overlay.active #header .nav-menu {
+    display: none;
+}
+
+/* ---------------------------------------- */
+/* BANNER TRANG CHỦ                         */
+/* ---------------------------------------- */
+
+.banner {
+    position: relative;
+    height: 400px; /* Chiều cao banner cố định, có thể điều chỉnh */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(var(--color-primary-rgb), 0.8), rgba(var(--color-primary-rgb), 0.8));
+}
+
+.banner h1 {
+    color: white;
+    font-size: 32px; /* Tiêu đề lớn */
+    text-align: center;
+    z-index: 1;
+}
+
+/* Sử dụng CSS variables cho màu gradient, cần chuyển đổi hex sang RGB */
+:root {
+    --color-primary-rgb: 122, 12, 46;
+}
+
+/* ---------------------------------------- */
+/* CARDS                                  */
+/* ---------------------------------------- */
+
+.card {
+    background-color: var(--color-bg);
+    border-radius: 8px; /* Bo góc nhẹ */
+    box-shadow: var(--box-shadow-light); /* Đổ bóng nhẹ */
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-4px); /* Nâng lên khi hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 20px; /* Tiêu đề trong card */
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* ---------------------------------------- */
+/* BUTTONS/CTA                            */
+/* ---------------------------------------- */
+
+button,
+.cta-button {
+    background-color: var(--color-primary); /* Nền màu đỏ bordeaux */
+    color: white; /* Chữ trắng */
+    border: none;
+    padding: 12px 24px; /* Khoảng cách giữa chữ và bút */
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    border-radius: var(--border-radius-small); /* Bo góc */
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+button:hover,
+.cta-button:hover {
+    background-color: var(--color-primary-dark); /* Đổi màu khi hover */
+}
+
+/* ---------------------------------------- */
+/* SECTION TITLES                         */
+/* ---------------------------------------- */
+
+section h2 {
+    font-size: 24px; /* Cỡ chữ tiêu đề section */
+    color: var(--color-text);
+    margin-bottom: 10px;
+    text-align: center; /* Căn giữa mặc định, có thể thay đổi tùy layout */
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 50px; /* Độ dài gạch chân */
+    height: 3px;
+    background-color: var(--color-accent); /* Gạch chân màu vàng */
+    margin-top: 8px; /* Khoảng cách từ tiêu đề */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------------------------------------- */
+/* FOOTER                                 */
+/* ---------------------------------------- */
+
+#footer {
+    background-color: var(--color-primary-dark);
+    color: #F5EDEF; /* Chữ trắng/xám nhạt */
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-column {
+    flex-basis: 28%; /* Tỷ lệ cột trên desktop, tương đương với 1/4 của tổng chiều rộng */
+    max-width: 350px; /* Giới hạn chiều rộng tối đa cho mỗi cột */
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+}
+
+.footer-list a {
+    color: inherit; /* Chữ trắng/xám nhạt */
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-list a:hover {
+    color: var(--color-accent); /* Vẫn chuyển màu vàng khi hover */
+}
+
+/* Responsive cho footer */
+@media (max-width: 768px) {
+    #footer {
+        flex-direction: column; /* Chuyển thành 1 cột trên mobile */
+    }
+
+    .footer-column {
+        flex-basis: 100%; /* Tải lên toàn bộ chiều rộng */
+        margin-bottom: 30px;
+    }
+}
+
+/* ---------------------------------------- */
+/* RESPONSIVE                             */
+/* ---------------------------------------- */
+
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column; /* Logo và menu thẳng dọc trên mobile */
+        align-items: center;
+        padding: 20px;
+    }
+
+    .logo {
+        margin-bottom: 15px; /* Khoảng cách giữa logo và menu */
+    }
+
+    .nav-menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none; /* Ẩn menu khi chưa mở */
+    }
+
+    .hamburger-icon span,
+    .close-icon span {
+        width: 20px; /* Kích thước con dấu hamburger */
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-item.active .nav-link,
+    .nav-menu.active .nav-link:hover {
+        background-color: transparent !important;
+        color: white;
+    }
+
+    /* Hiệu ứng đóng menu khi nhấp ngoài */
+    body.overlay.active #header .nav-menu {
+        display: none;
+    }
+}
+``` Alvarado: style.css, path: vien_ncdt_website/css/style.css

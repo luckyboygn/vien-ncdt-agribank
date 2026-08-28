@@ -1,0 +1,29 @@
+<header id="header">
+    <div class="logo">VIỆN NCĐT</div>
+    <nav>
+        <ul class="nav-menu" id="main-nav">
+            <li class="nav-item"><a href="/index.html" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item"><a href="/gioi-thieu.html" class="nav-link">Giới thiệu</a></li>
+            <li class="nav-item"><a href="/co-cau-to-chuc.html" class="nav-link">Cơ cấu tổ chức</a></li>
+            <li class="nav-item"><a href="/tin-tuc.html" class="nav-link">Tin tức</a></li>
+            <li class="nav-item"><a href="/lien-he.html" class="nav-link">Liên hệ</a></li>
+        </ul>
+        <div class="nav-menu-toggle" onclick="toggleMenu()">
+            <div class="hamburger-icon">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('main-nav').classList.toggle('active');
+    }
+    // Tự động thêm class active cho link tương ứng với trang hiện tại
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.href === window.location.href) {
+            link.parentElement.classList.add('active');
+        }
+    });
+</script>

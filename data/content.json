@@ -1,0 +1,73 @@
+{
+    "gioiThieu": {
+        "description": "Viện Nghiên cứu và Đào tạo là đơn vị sự nghiệp thuộc cơ cấu tổ chức của Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam (Agribank), có con dấu và bảng cân đối kế toán riêng, có chức năng tham mưu, quản lý và tổ chức thực hiện 3 lĩnh vực:\n\n1. Quản lý, tổ chức thực hiện hoạt động khoa học, công nghệ, đổi mới sáng tạo và sáng kiến cải tiến công việc.\n2. Nghiên cứu, phân tích, dự báo về kinh tế, tài chính - tiền tệ - ngân hàng và xu hướng thị trường trong nước, quốc tế; cung cấp thông tin, dữ liệu, luận cứ khoa học phục vụ Hội đồng thành viên, Tổng Giám đốc trong hoạch định chiến lược, quản trị, điều hành và phát triển Agribank.\n3. Quản lý, tổ chức thực hiện hoạt động đào tạo, khảo thí và đánh giá chất lượng, hiệu quả đào tạo trong hệ thống Agribank."
+    },
+    "coCauToChuc": [
+        {
+            "name": "Ban Giám đốc",
+            "description": "Giám đốc (quản lý, điều hành trực tiếp theo chế độ Thủ trưởng) và Phó Giám đốc (giúp việc Giám đốc)."
+        },
+        {
+            "name": "Phòng Quản lý khoa học - Giảng dạy",
+            "description": "Thường trực Hội đồng khoa học Agribank; quản lý hoạt động khoa học công nghệ, đổi mới sáng tạo; biên soạn tài liệu giảng dạy; trực tiếp giảng dạy, tập huấn chuyên môn nghiệp vụ."
+        },
+        {
+            "name": "Phòng Nghiên cứu phát triển",
+            "description": "Nghiên cứu, phân tích, dự báo kinh tế - tài chính - tiền tệ - ngân hàng; xây dựng báo cáo định kỳ, báo cáo chuyên đề, thông tin cảnh báo phục vụ hoạch định chiến lược của Agribank."
+        },
+        {
+            "name": "Phòng Phát triển chương trình đào tạo",
+            "description": "Xây dựng chiến lược đào tạo, khung chương trình đào tạo, kế hoạch đào tạo hằng năm; chuẩn hóa chương trình, phát triển đội ngũ giảng viên Agribank."
+        },
+        {
+            "name": "Phòng Quản lý đào tạo",
+            "description": "Điều phối, tổ chức triển khai các chương trình đào tạo trực tiếp và trực tiếp kết hợp trực tuyến; quản lý hồ sơ học viên, đánh giá chất lượng đào tạo."
+        },
+        {
+            "name": "Phòng E-Learning và Khảo thí",
+            "description": "Vận hành hệ thống đào tạo trực tuyến, tổ chức thi/kiểm tra/khảo thí toàn hệ thống, quản lý ngân hàng câu hỏi - ngân hàng đề thi, vận hành Trung tâm Tri thức và thư viện điện tử."
+        },
+        {
+            "name": "Phòng Tổng hợp",
+            "description": "Công tác tổ chức - nhân sự, hành chính - hậu cần, văn thư - pháp chế của Viện."
+        },
+        {
+            "name": "Phòng Kế toán",
+            "description": "Xây dựng kế hoạch tài chính hằng năm, quản lý tài chính - kế toán của Viện."
+        }
+    ],
+    "banLanhDao": [],
+    "tinTuc": [
+        {
+            "id": 1,
+            "title": "Viện Nghiên cứu và Đào tạo tổ chức hội thảo khoa học",
+            "date": "2023-10-15",
+            "image": "/assets/images/news1.jpg",
+            "summary": "Hội thảo tập trung vào các chủ đề mới về khoa học và công nghệ trong lĩnh vực ngân hàng.",
+            "content": "Nội dung chi tiết của bài viết..."
+        },
+        {
+            "id": 2,
+            "title": "Khai giảng khóa đào tạo nghiệp vụ",
+            "date": "2023-11-01",
+            "image": "/assets/images/news2.jpg",
+            "summary": "Khóa đào tạo dành cho nhân viên Agribank tập trung vào các kỹ năng quản lý và kinh doanh.",
+            "content": "Nội dung chi tiết của bài viết..."
+        },
+        {
+            "id": 3,
+            "title": "Đánh giá chất lượng đào tạo năm 2023",
+            "date": "2023-12-10",
+            "image": "/assets/images/news3.jpg",
+            "summary": "Viện Nghiên cứu và Đào tạo công bố kết quả đánh giá chất lượng đào tạo trong năm 2023.",
+            "content": "Nội dung chi tiết của bài viết..."
+        }
+    ],
+    "lienHe": {
+        "address": "Cập nhật sau",
+        "phone": "Cập nhật sau",
+        "email": "Cập nhật sau",
+        "workingHours": "Cập nhật sau"
+    }
+}
+``` Alvarado: data/content.json, path: vien_ncdt_website/data/content.json
