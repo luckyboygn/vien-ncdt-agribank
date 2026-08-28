@@ -20,7 +20,6 @@
     function toggleMenu() {
         document.getElementById('main-nav').classList.toggle('active');
     }
-    // Tự động thêm class active cho link tương ứng với trang hiện tại
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.href === window.location.href) {
             link.parentElement.classList.add('active');
